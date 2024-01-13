@@ -66,7 +66,7 @@ class Game
     puts "Enter 1 to save the game, any other key to continue playing"
     query = gets.chomp
     if query == "1"
-      File.open("save.txt", "w") do |f|
+      File.open("save/save.txt", "w") do |f|
         data = JSON.dump([word, turns_remain, incorrect_letter, display_word])
         f.puts data        
       end
@@ -100,7 +100,7 @@ puts "Enter 1 to load the game you saved, anyother keys to start a new game"
 loop do
   query = gets.chomp
   if query == '1' 
-    Game.load_save('save.txt')
+    Game.load_save('save/save.txt')
   else
     game = Game.new
     game.load_game
